@@ -34,12 +34,37 @@ const useTasks = () => {
 
   // Update Task Order (After Dragging)
   const updateTaskMutation = useMutation({
-    mutationFn: async ({ id, updatedTask }) => {
-      const res = await axiosSecure.patch(`/tasks/${id}`, updatedTask);
+    mutationFn: async ({ updatedTasks }) => {
+      const res = await axiosSecure.patch("/tasks/update-order", {
+        updatedTasks,
+      });
       return res.data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["tasks", user?.email]); // Refetch tasks after update
+      queryClient.invalidateQueries(["tasks", user?.email]);
+    },
+  });
+  // Edit Task
+  const editTaskMutation = useMutation({
+    mutationFn: async ({ id, editedTask }) => {
+      const res = await axiosSecure.patch(`/tasks/${id}`, {
+        title: editedTask.title,
+        description: editedTask.description,
+      });
+      return res.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["tasks", user?.email]);
+    },
+  });
+
+  const deleteTaskMutation = useMutation({
+    mutationFn: async (id) => {
+      const res = await axiosSecure.delete(`/tasks/${id}`);
+      return res.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["tasks", user?.email]);
     },
   });
 
@@ -54,7 +79,14 @@ const useTasks = () => {
     };
   }, [refetch]);
 
-  return { tasksData, addTaskMutation, updateTaskMutation, refetch };
+  return {
+    tasksData,
+    addTaskMutation,
+    updateTaskMutation,
+    editTaskMutation,
+    deleteTaskMutation,
+    refetch,
+  };
 };
 
 export default useTasks;
