@@ -4,7 +4,9 @@ import { useEffect } from "react";
 import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 
-const socket = io("http://localhost:5000"); // Connect to Socket.io server
+const socket = io("https://task-manager-server-0x8m.onrender.com",{
+  transports: ["websocket", "polling"],
+}); // Connect to Socket.io server
 
 const useTasks = () => {
   const axiosSecure = useAxiosSecure();
