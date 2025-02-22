@@ -20,6 +20,26 @@ Task Manager is a real-time, drag-and-drop, task management application built wi
 - **SweetAlert2**: Beautiful and customizable alert and confirmation dialogs.
 - **Lottie React**: Animation library for integrating Lottie files.
 
+## Dependencies
+- **@hello-pangea/dnd**: For drag-and-drop functionality to reorder tasks.
+- **@tailwindcss/postcss** & **@tailwindcss/vite**: Tailwind CSS integration with PostCSS and Vite.
+- **@tanstack/react-query**: For fetching and caching data in React.
+- **axios**: HTTP client for making requests to the backend API.
+- **firebase**: For handling user authentication and other Firebase services.
+- **lottie-react**: For displaying animations in the app.
+- **moment**: For handling and formatting dates (consider replacing with `date-fns`).
+- **postcss**: CSS processing tool for transforming CSS with plugins.
+- **react**: Core library for building the user interface.
+- **react-dom**: For rendering React components.
+- **react-hook-form**: For handling form input validation and submission.
+- **react-icons**: A library for popular icons in React.
+- **react-router-dom**: Routing library for React.
+- **react-toastify**: Toast notification for alerts.
+- **socket.io-client**: Client for real-time WebSocket communication.
+- **sweetalert2**: For elegant and customizable popups.
+- **tailwindcss**: CSS framework for responsive design and utility-first styling.
+
+
 ## Installation Steps
 
 ### 1. Clone the repository
