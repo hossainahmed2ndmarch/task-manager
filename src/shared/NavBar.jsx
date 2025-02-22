@@ -1,6 +1,6 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { useTheme } from "../providers/ThemeProvider";
 import { IoMoonOutline } from "react-icons/io5";
@@ -20,30 +20,26 @@ const NavBar = () => {
     navigate("/");
   };
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar fixed top-0 bg-[#377376] z-10 shadow-sm">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">TaskPilot</a>
+        <a className="btn btn-ghost text-white text-2xl">TaskPilot</a>
       </div>
       <div className="navbar-end flex items-center space-x-4">
         <button
           onClick={toggleTheme}
-          data-tooltip-id="theme-tooltip"
-          data-tooltip-content={
-            isDark ? "Switch to Light Mode" : "Switch to Dark Mode"
-          }
-          className="p-2 rounded-full text-primary hover:bg-primary hover:text-light font-semibold bg-transparent border-none shadow-none text-2xl"
+          className="p-2 rounded-full text-white hover:text-white font-semibold bg-transparent border-none shadow-none text-2xl"
         >
           {isDark ? <MdOutlineWbSunny /> : <IoMoonOutline />}
         </button>
         {user && user?.email && (
           <button
             onClick={handleLogOut}
-            className="btn hidden md:flex border-none bg-transparent text-lg text-white font-bold transition-all"
+            className="btn hidden md:flex border-none bg-transparent text-lg shadow-none text-white font-bold transition-all"
           >
             LogOut
           </button>
         )}
-        {user && user?.email && (
+        {user && user?.email ? (
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -74,6 +70,13 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
+        ) : (
+          <NavLink
+            to="/sign-up"
+            className="btn border-none shadow-none bg-transparent text-lg text-white font-bold transition-all"
+          >
+            SignUp
+          </NavLink>
         )}
       </div>
     </div>

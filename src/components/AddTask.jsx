@@ -40,7 +40,7 @@ const AddTask = () => {
           maxLength: { value: 50, message: "Max 50 characters allowed" },
         })}
         placeholder="Task Title (max 50 chars)"
-        className="w-full p-2 mb-2 border rounded"
+        className="w-full bg-[#d7f2f5] rounded-lg border-[#22b0bd] p-2 mb-2 border"
       />
       {errors.title && (
         <p className="text-red-500 text-sm">{errors.title.message}</p>
@@ -52,7 +52,7 @@ const AddTask = () => {
           maxLength: { value: 200, message: "Max 200 characters allowed" },
         })}
         placeholder="Task Description (max 200 chars)"
-        className="w-full p-2 mb-2 border rounded"
+        className="w-full bg-[#d7f2f5] rounded-lg border-[#22b0bd] p-2 mb-2 border"
       />
       {errors.description && (
         <p className="text-red-500 text-sm">{errors.description.message}</p>
@@ -60,7 +60,7 @@ const AddTask = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
+        className="w-full bg-[#22b0bd] rounded-lg text-white p-2"
       >
         Add Task
       </button>

@@ -26,7 +26,7 @@ const EditModal = ({ isModalOpen, setModalOpen, task, editTaskMutation }) => {
       <div className="modal-box relative">
         <button
           onClick={() => setModalOpen(false)}
-          className="btn btn-sm btn-circle absolute right-2 top-2"
+          className="btn btn-sm btn-circle text-[#22b0bd] absolute right-2 top-2"
         >
           ✕
         </button>
@@ -38,7 +38,7 @@ const EditModal = ({ isModalOpen, setModalOpen, task, editTaskMutation }) => {
             <input
               type="text"
               id="title"
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border bg-[#d7f2f5] border-[#22b0bd] rounded"
               {...register("title", { required: "Title is required" })}
             />
           </div>
@@ -48,7 +48,7 @@ const EditModal = ({ isModalOpen, setModalOpen, task, editTaskMutation }) => {
             </label>
             <textarea
               id="description"
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border bg-[#d7f2f5] border-[#22b0bd] rounded"
               rows="3"
               {...register("description", {
                 required: "Description is required",
@@ -58,12 +58,12 @@ const EditModal = ({ isModalOpen, setModalOpen, task, editTaskMutation }) => {
           <div className="flex justify-end">
             <button
               type="button"
-              className="btn btn-outline"
+              className="btn btn-outline border-[#22b0bd] text-[#22b0bd]"
               onClick={() => setModalOpen(false)}
             >
               Cancel
             </button>
-            <button type="submit" className="btn btn-primary ml-2">
+            <button type="submit" className="btn btn-primary ml-2 bg-[#22b0bd] text-white border-none shadow-[#22b0bd]">
               Save Changes
             </button>
           </div>

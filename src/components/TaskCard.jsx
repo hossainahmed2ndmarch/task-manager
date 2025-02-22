@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import EditModal from "./EditModal";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const TaskCard = ({
   task,
@@ -35,25 +36,30 @@ const TaskCard = ({
       ref={provided.innerRef}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
-      className="p-4 bg-gray-100 shadow rounded-lg mb-2 flex justify-between items-center"
+      className="p-4 bg-[#d7f2f5] shadow rounded-lg mb-2 flex justify-between items-center w-full overflow-hidden"
     >
-      <div>
-        <h3 className="font-bold">{task.title}</h3>
-        <p className="text-sm">{task.description}</p>
+      <div className="flex-1 min-w-0">
+        <h3 className="font-bold text-[#22b0bd] truncate">{task.title}</h3>
+        <p className="text-sm break-words overflow-hidden text-ellipsis">
+          {task.description}
+        </p>
+
+        {/* Timestamp */}
+        <p className="text-xs text-gray-500 mt-1">
+          {moment(task?.timestamp).format("MMMM Do YYYY, h:mm A")}
+        </p>
       </div>
 
       {/* Icons (Edit & Delete) */}
       <div className="flex gap-2">
-        {/* Edit Icon */}
         <span
-          className="text-gray-400 cursor-pointer"
+          className="text-[#22b0bd] cursor-pointer"
           onClick={() => setIsModalOpen(true)}
         >
           <AiOutlineEdit size={20} />
         </span>
 
-        {/* Delete Icon */}
-        <span className="text-red-500 cursor-pointer" onClick={handleDelete}>
+        <span className="text-[#22b0bd] cursor-pointer" onClick={handleDelete}>
           <AiOutlineDelete size={20} />
         </span>
       </div>

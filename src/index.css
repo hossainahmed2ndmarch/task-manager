@@ -1,3 +1,22 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@tailwind utilities;
 
+
+
+/* @layer base {
+  :root {
+    --primary-bg-color: #22b0bd;
+    --primary-text-color: #ffffff;
+    --secondary-bg-color: #d7f2f5;
+    --secondary-text-color: #084c52;
+  }
+
+  /* Dark Mode Variables */
+/* [data-theme="dark"] {
+    --color-primary: #14272a;
+    --primary-text-color: #d7f2f5;
+    --secondary-bg-color: #1b555e;
+    --secondary-text-color: #7ecbd5;
+  }
+/* } */

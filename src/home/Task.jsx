@@ -79,8 +79,8 @@ const Task = () => {
   };
 
   return (
-    <div className=" mx-auto p-6 bg-gray-100 shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-center">
+    <div className=" mx-auto p-6 mt-16 bg-[#22b0bd]">
+      <h2 className="text-2xl font-bold text-white mb-4 text-center">
         Task Management Board
       </h2>
 
@@ -98,7 +98,7 @@ const Task = () => {
                   {...provided.droppableProps}
                   className="bg-white p-4 shadow rounded-lg"
                 >
-                  <h3 className="font-bold text-lg text-center mb-3">
+                  <h3 className="font-bold text-[#22b0bd] text-lg text-center mb-3">
                     {category}
                   </h3>
                   {tasks[category].map((task, index) => (
